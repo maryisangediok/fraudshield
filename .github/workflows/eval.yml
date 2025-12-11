@@ -1,0 +1,301 @@
+# .github/workflows/eval.yml
+# CI/CD pipeline for FraudShield evaluation
+#
+# Runs evaluation on every PR to catch regressions in:
+# - Detection metrics (Precision, Recall, F1)
+# - Business impact
+# - Model robustness
+#
+# Fails the build if metrics fall below thresholds.
+
+name: FraudShield Evaluation
+
+on:
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'fraudshield/**'
+      - 'datasets/**'
+      - 'requirements.txt'
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      full_eval:
+        description: 'Run full evaluation (vs quick smoke test)'
+        required: false
+        default: 'false'
+        type: boolean
+
+env:
+  PYTHON_VERSION: '3.11'
+  # Metric thresholds (fail CI if below these)
+  MIN_RECALL: 0.90
+  MIN_PRECISION: 0.80
+  MIN_F1: 0.85
+  MIN_OVERALL_SCORE: 70
+
+jobs:
+  lint:
+    name: Lint & Type Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install ruff mypy
+          pip install -r requirements.txt
+      
+      - name: Run Ruff
+        run: ruff check fraudshield/ --output-format=github
+      
+      - name: Run MyPy
+        run: mypy fraudshield/ --ignore-missing-imports || true
+
+  unit-tests:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install pytest pytest-cov
+          pip install -r requirements.txt
+      
+      - name: Run tests
+        run: |
+          pytest tests/ -v --cov=fraudshield --cov-report=xml || true
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
+          fail_ci_if_error: false
+
+  evaluation:
+    name: Model Evaluation
+    runs-on: ubuntu-latest
+    needs: [lint]
+    
+    services:
+      # Run the API as a service container
+      fraudshield-api:
+        image: python:3.11-slim
+        ports:
+          - 8000:8000
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+      
+      - name: Start API server
+        run: |
+          uvicorn fraudshield.api.server:app --host 0.0.0.0 --port 8000 &
+          sleep 10  # Wait for server to start
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Health check
+        run: |
+          curl -f http://localhost:8000/health || exit 1
+      
+      - name: Run quick evaluation
+        if: github.event.inputs.full_eval != 'true'
+        run: |
+          python -m fraudshield.eval.run_comprehensive \
+            --dataset-dir datasets/fraudshield_dataset_large \
+            --max-samples 200 \
+            --no-judge \
+            --no-adversarial \
+            --output-dir eval_results \
+            --run-name ci-quick
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Run full evaluation
+        if: github.event.inputs.full_eval == 'true'
+        run: |
+          python -m fraudshield.eval.run_comprehensive \
+            --dataset-dir datasets/fraudshield_dataset_large \
+            --output-dir eval_results \
+            --run-name ci-full
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Check metric thresholds
+        run: |
+          python -c "
+          import json
+          import sys
+          from pathlib import Path
+          
+          # Find latest result
+          results = sorted(Path('eval_results').glob('*.json'), reverse=True)
+          if not results:
+              print('❌ No evaluation results found')
+              sys.exit(1)
+          
+          with open(results[0]) as f:
+              data = json.load(f)
+          
+          metrics = data.get('traditional_metrics', {})
+          scores = data.get('scores', {})
+          
+          failed = False
+          
+          # Check recall
+          recall = metrics.get('recall', 0)
+          if recall < ${{ env.MIN_RECALL }}:
+              print(f'❌ Recall {recall:.2%} below threshold ${{ env.MIN_RECALL }}')
+              failed = True
+          else:
+              print(f'✅ Recall {recall:.2%} >= ${{ env.MIN_RECALL }}')
+          
+          # Check precision
+          precision = metrics.get('precision', 0)
+          if precision < ${{ env.MIN_PRECISION }}:
+              print(f'❌ Precision {precision:.2%} below threshold ${{ env.MIN_PRECISION }}')
+              failed = True
+          else:
+              print(f'✅ Precision {precision:.2%} >= ${{ env.MIN_PRECISION }}')
+          
+          # Check F1
+          f1 = metrics.get('f1_score', 0)
+          if f1 < ${{ env.MIN_F1 }}:
+              print(f'❌ F1 {f1:.2%} below threshold ${{ env.MIN_F1 }}')
+              failed = True
+          else:
+              print(f'✅ F1 {f1:.2%} >= ${{ env.MIN_F1 }}')
+          
+          # Check overall score
+          overall = scores.get('overall', 0)
+          if overall < ${{ env.MIN_OVERALL_SCORE }}:
+              print(f'❌ Overall score {overall:.1f} below threshold ${{ env.MIN_OVERALL_SCORE }}')
+              failed = True
+          else:
+              print(f'✅ Overall score {overall:.1f} >= ${{ env.MIN_OVERALL_SCORE }}')
+          
+          if failed:
+              print('\\n🚨 Evaluation FAILED - metrics below threshold')
+              sys.exit(1)
+          else:
+              print('\\n✅ Evaluation PASSED - all metrics above threshold')
+          "
+      
+      - name: Upload evaluation results
+        uses: actions/upload-artifact@v4
+        with:
+          name: eval-results
+          path: eval_results/
+          retention-days: 30
+      
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Find latest result file
+            const resultsDir = 'eval_results';
+            const files = fs.readdirSync(resultsDir)
+              .filter(f => f.endsWith('.json'))
+              .sort()
+              .reverse();
+            
+            if (files.length === 0) return;
+            
+            const data = JSON.parse(fs.readFileSync(path.join(resultsDir, files[0])));
+            const metrics = data.traditional_metrics || {};
+            const scores = data.scores || {};
+            
+            const body = `## 🛡️ FraudShield Evaluation Results
+            
+            | Metric | Value | Status |
+            |--------|-------|--------|
+            | Recall | ${(metrics.recall * 100).toFixed(1)}% | ${metrics.recall >= 0.9 ? '✅' : '❌'} |
+            | Precision | ${(metrics.precision * 100).toFixed(1)}% | ${metrics.precision >= 0.8 ? '✅' : '❌'} |
+            | F1 Score | ${(metrics.f1_score * 100).toFixed(1)}% | ${metrics.f1_score >= 0.85 ? '✅' : '❌'} |
+            | Overall Score | ${scores.overall?.toFixed(1) || 'N/A'} | ${(scores.overall || 0) >= 70 ? '✅' : '❌'} |
+            
+            <details>
+            <summary>📊 Full Report</summary>
+            
+            \`\`\`json
+            ${JSON.stringify(data, null, 2).slice(0, 3000)}
+            \`\`\`
+            </details>
+            `;
+            
+            github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: body
+            });
+
+  # Nightly full evaluation
+  nightly-eval:
+    name: Nightly Full Evaluation
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+      
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      
+      - name: Start API
+        run: |
+          uvicorn fraudshield.api.server:app --host 0.0.0.0 --port 8000 &
+          sleep 10
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Run full evaluation with LLM judge
+        run: |
+          python -m fraudshield.eval.run_comprehensive \
+            --dataset-dir datasets/fraudshield_dataset_large \
+            --output-dir eval_results \
+            --run-name nightly-$(date +%Y%m%d)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      
+      - name: Upload results
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-eval-${{ github.run_id }}
+          path: eval_results/
+          retention-days: 90
+

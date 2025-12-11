@@ -1,0 +1,15 @@
+{"id": 0, "url": "https://www.google.com/search?q=weather", "label": "benign", "category": "search"}
+{"id": 1, "url": "https://www.amazon.com/dp/B08N5WRWNW", "label": "benign", "category": "shopping"}
+{"id": 2, "url": "https://www.github.com/microsoft/vscode", "label": "benign", "category": "developer"}
+{"id": 3, "url": "https://stackoverflow.com/questions/tagged/python", "label": "benign", "category": "developer"}
+{"id": 4, "url": "https://www.wikipedia.org/wiki/Machine_learning", "label": "benign", "category": "education"}
+{"id": 5, "url": "https://accounts.google.com/signin/v2/identifier", "label": "benign", "category": "legitimate_login"}
+{"id": 6, "url": "https://login.microsoftonline.com/common/oauth2/authorize", "label": "benign", "category": "legitimate_login"}
+{"id": 7, "url": "https://www.paypal.com/signin", "label": "benign", "category": "legitimate_login"}
+{"id": 8, "url": "https://www.chase.com/personal/checking", "label": "benign", "category": "banking"}
+{"id": 9, "url": "https://www.bankofamerica.com/online-banking/", "label": "benign", "category": "banking"}
+{"id": 10, "url": "https://www.usps.com/track?tracknumber=123456", "label": "benign", "category": "shipping"}
+{"id": 11, "url": "https://tracking.fedex.com/tracking/results?id=789", "label": "benign", "category": "shipping"}
+{"id": 12, "url": "https://www.coinbase.com/signin", "label": "benign", "category": "crypto"}
+{"id": 13, "url": "https://app.netlify.com/sites/mysite/deploys", "label": "benign", "category": "developer"}
+{"id": 14, "url": "https://vercel.com/dashboard", "label": "benign", "category": "developer"}

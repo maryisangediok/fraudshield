@@ -1,0 +1,11 @@
+{"id": 0, "subject": "Payment failed", "body": "Dear user, we detected irregular activity. Please verify: https://bank-secure.com/verify?session=52908", "label": "phishing"}
+{"id": 1, "subject": "Unusual login detected", "body": "Dear user, we detected irregular activity. Please verify: https://bank-secure.co/reset?session=69836", "label": "phishing"}
+{"id": 2, "subject": "Verify your identity", "body": "Dear user, your account requires immediate verification to avoid suspension. Click here: https://secure-update.net/verify?session=82416", "label": "phishing"}
+{"id": 3, "subject": "Invoice overdue", "body": "Your payment is overdue. To avoid collection action, pay immediately: https://payment-portal.net/pay?inv=12345", "label": "phishing"}
+{"id": 4, "subject": "Your account will be closed", "body": "Dear valued customer, your account will be permanently closed in 24 hours unless you verify: https://secure-update.co/verify", "label": "phishing"}
+{"id": 5, "subject": "IT Support: Password Reset Required", "body": "Your corporate password expires today. Reset immediately to avoid lockout: https://it-helpdesk.co/reset?user=employee", "label": "phishing"}
+{"id": 6, "subject": "You have a new voicemail", "body": "You have 1 new voicemail from +1-800-555-0123. Listen now: https://voicemail-portal.net/listen?id=vm123", "label": "phishing"}
+{"id": 7, "subject": "Document shared with you", "body": "John Smith shared a document with you. View document: https://docs-share.net/view?doc=confidential", "label": "phishing"}
+{"id": 8, "subject": "Tax refund notification", "body": "The IRS has calculated your refund of $2,847.00. Claim your refund: https://irs-refunds.co/claim?ssn=xxx", "label": "phishing"}
+{"id": 9, "subject": "Your package could not be delivered", "body": "Your FedEx package requires action. Reschedule delivery: https://fedex-delivery.net/reschedule?pkg=456", "label": "phishing"}
+

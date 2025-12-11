@@ -1,0 +1,101 @@
+{"id": 0, "text": "Hey! Are we still on for dinner tonight at 7?", "label": "benign"}
+{"id": 1, "text": "Running 10 mins late, traffic is crazy. Be there soon!", "label": "benign"}
+{"id": 2, "text": "Happy birthday! Hope you have an amazing day! 🎂", "label": "benign"}
+{"id": 3, "text": "Can you pick up milk on your way home?", "label": "benign"}
+{"id": 4, "text": "Thanks for lunch! Let's do it again soon.", "label": "benign"}
+{"id": 5, "text": "Mom says hi and wants to know if you're coming for Thanksgiving.", "label": "benign"}
+{"id": 6, "text": "Just landed! Will text you when I get to the hotel.", "label": "benign"}
+{"id": 7, "text": "Did you see the game last night? Incredible finish!", "label": "benign"}
+{"id": 8, "text": "Meeting moved to 3pm. Conference room B.", "label": "benign"}
+{"id": 9, "text": "Your prescription is ready for pickup at Walgreens.", "label": "benign"}
+{"id": 10, "text": "Reminder: Your dentist appointment is tomorrow at 2:30pm.", "label": "benign"}
+{"id": 11, "text": "Package delivered to your front door. Photo attached in app.", "label": "benign"}
+{"id": 12, "text": "Your Uber is arriving now. Black Toyota Camry.", "label": "benign"}
+{"id": 13, "text": "Your DoorDash order is on its way! Track: doordash.com/orders", "label": "benign"}
+{"id": 14, "text": "Flight UA123 delayed 45 mins. New departure 8:15pm.", "label": "benign"}
+{"id": 15, "text": "Your Amazon order has shipped! Arrives Tuesday.", "label": "benign"}
+{"id": 16, "text": "Welcome to Spotify Premium! Your trial ends in 30 days.", "label": "benign"}
+{"id": 17, "text": "Your Netflix profile PIN has been updated successfully.", "label": "benign"}
+{"id": 18, "text": "New sign-in to your Google account from Chrome on Windows.", "label": "benign"}
+{"id": 19, "text": "Your password was changed successfully. If this wasn't you, contact support.", "label": "benign"}
+{"id": 20, "text": "2FA code: 847291. Valid for 10 minutes. Don't share this code.", "label": "benign"}
+{"id": 21, "text": "Your verification code is 583920. Expires in 5 minutes.", "label": "benign"}
+{"id": 22, "text": "G-482019 is your Google verification code.", "label": "benign"}
+{"id": 23, "text": "Your Apple ID verification code is: 294716", "label": "benign"}
+{"id": 24, "text": "Your Chase credit card payment of $523.47 was received. Thank you!", "label": "benign"}
+{"id": 25, "text": "Statement ready: Your Chase account statement is now available.", "label": "benign"}
+{"id": 26, "text": "Direct deposit of $2,847.50 received from ACME Corp.", "label": "benign"}
+{"id": 27, "text": "Low balance alert: Your checking account is below $100.", "label": "benign"}
+{"id": 28, "text": "Your Venmo payment of $25 to @johndoe was completed.", "label": "benign"}
+{"id": 29, "text": "Sarah sent you $50 on Venmo for 'dinner'.", "label": "benign"}
+{"id": 30, "text": "Your Zelle payment to Mike Smith ($200) is complete.", "label": "benign"}
+{"id": 31, "text": "Autopay scheduled: $89.99 will be charged on Dec 15.", "label": "benign"}
+{"id": 32, "text": "Your credit score has been updated. View in app.", "label": "benign"}
+{"id": 33, "text": "Gym reminder: You have a class booked for 6pm today.", "label": "benign"}
+{"id": 34, "text": "Your car service appointment is confirmed for Saturday 9am.", "label": "benign"}
+{"id": 35, "text": "School closure: Due to weather, school is closed tomorrow.", "label": "benign"}
+{"id": 36, "text": "PTA meeting tonight at 6:30pm in the cafeteria.", "label": "benign"}
+{"id": 37, "text": "Your child was marked present at school today.", "label": "benign"}
+{"id": 38, "text": "Library books due in 3 days. Renew online or return to avoid fines.", "label": "benign"}
+{"id": 39, "text": "Your order #48291 is ready for pickup at store.", "label": "benign"}
+{"id": 40, "text": "Sale alert! 20% off everything this weekend at Target.", "label": "benign"}
+{"id": 41, "text": "Your loyalty points: 4,892. Redeem for rewards in app.", "label": "benign"}
+{"id": 42, "text": "Appointment confirmed: Dr. Johnson on Mon 3pm.", "label": "benign"}
+{"id": 43, "text": "Lab results are ready. View in your patient portal.", "label": "benign"}
+{"id": 44, "text": "Flu shots now available. Schedule at your local CVS.", "label": "benign"}
+{"id": 45, "text": "Your pet's vet appointment is tomorrow at 10am.", "label": "benign"}
+{"id": 46, "text": "Time to reorder: Your contact lens subscription renews soon.", "label": "benign"}
+{"id": 47, "text": "Your Costco membership expires next month. Renew to save.", "label": "benign"}
+{"id": 48, "text": "New episode of your favorite show is now streaming!", "label": "benign"}
+{"id": 49, "text": "Weather alert: Heavy rain expected tonight. Drive safe!", "label": "benign"}
+{"id": 50, "text": "Your electricity bill is $142.38. Due date: Jan 15.", "label": "benign"}
+{"id": 51, "text": "Water bill reminder: $34.50 due by December 20.", "label": "benign"}
+{"id": 52, "text": "Internet service maintenance scheduled for 2am-4am tonight.", "label": "benign"}
+{"id": 53, "text": "Your Xfinity bill of $89.99 is due in 5 days.", "label": "benign"}
+{"id": 54, "text": "Rent reminder: $1,850 due on the 1st. Pay through portal.", "label": "benign"}
+{"id": 55, "text": "Lease renewal notice: Please respond by December 30.", "label": "benign"}
+{"id": 56, "text": "Building maintenance: Water shutoff 9am-12pm tomorrow.", "label": "benign"}
+{"id": 57, "text": "Your package is out for delivery. Expected by 8pm.", "label": "benign"}
+{"id": 58, "text": "FedEx: Delivery attempted. Will retry tomorrow.", "label": "benign"}
+{"id": 59, "text": "UPS: Your package will arrive today by end of day.", "label": "benign"}
+{"id": 60, "text": "USPS: Item delivered to mailbox at 2:34pm.", "label": "benign"}
+{"id": 61, "text": "Your hotel reservation at Marriott is confirmed for Dec 20-22.", "label": "benign"}
+{"id": 62, "text": "Check-in now available for your flight tomorrow.", "label": "benign"}
+{"id": 63, "text": "Your rental car is ready for pickup at Enterprise.", "label": "benign"}
+{"id": 64, "text": "Dinner reservation confirmed: 7pm at The Italian Place for 4.", "label": "benign"}
+{"id": 65, "text": "Your table is ready! Please check in at the host stand.", "label": "benign"}
+{"id": 66, "text": "Thanks for dining with us! Rate your experience.", "label": "benign"}
+{"id": 67, "text": "Your food order is being prepared. Ready in 15 mins.", "label": "benign"}
+{"id": 68, "text": "Grocery delivery arriving in 20 minutes.", "label": "benign"}
+{"id": 69, "text": "Your Instacart order is complete. $127.43 charged.", "label": "benign"}
+{"id": 70, "text": "Movie tickets confirmed: 2 for Dune at 7:30pm.", "label": "benign"}
+{"id": 71, "text": "Concert reminder: Taylor Swift tomorrow at 8pm. Gates open 6pm.", "label": "benign"}
+{"id": 72, "text": "Your Ticketmaster order is confirmed. Download tickets in app.", "label": "benign"}
+{"id": 73, "text": "Survey: How was your recent purchase? Reply 1-5.", "label": "benign"}
+{"id": 74, "text": "Job interview reminder: Tomorrow at 10am via Zoom.", "label": "benign"}
+{"id": 75, "text": "Background check complete. Results sent to employer.", "label": "benign"}
+{"id": 76, "text": "Your application to ACME Corp has been received.", "label": "benign"}
+{"id": 77, "text": "Congratulations! Your offer letter is ready for review.", "label": "benign"}
+{"id": 78, "text": "Payroll: Your pay stub for 12/01-12/15 is available.", "label": "benign"}
+{"id": 79, "text": "Benefits enrollment deadline is December 31.", "label": "benign"}
+{"id": 80, "text": "Your 401k contribution has been updated.", "label": "benign"}
+{"id": 81, "text": "Office closed Friday for holiday. See you Monday!", "label": "benign"}
+{"id": 82, "text": "Team lunch tomorrow at noon. RSVP to confirm.", "label": "benign"}
+{"id": 83, "text": "Your expense report has been approved. $342.50 reimbursed.", "label": "benign"}
+{"id": 84, "text": "Time off approved: Dec 23-Jan 2. Enjoy your vacation!", "label": "benign"}
+{"id": 85, "text": "Performance review scheduled for Thursday at 2pm.", "label": "benign"}
+{"id": 86, "text": "Your car registration expires next month. Renew online.", "label": "benign"}
+{"id": 87, "text": "Oil change reminder: Your car is due for service.", "label": "benign"}
+{"id": 88, "text": "Your AAA membership has been renewed. Card arriving soon.", "label": "benign"}
+{"id": 89, "text": "Toll charge: $4.50 on I-95. View details in EZPass app.", "label": "benign"}
+{"id": 90, "text": "Parking receipt: $12.00 at 123 Main St. 2 hours.", "label": "benign"}
+{"id": 91, "text": "Your Tesla is done charging. 95% battery.", "label": "benign"}
+{"id": 92, "text": "Gas prices near you: lowest $3.29 at Shell on Oak St.", "label": "benign"}
+{"id": 93, "text": "Your Lyft ride receipt: $18.47. Rate your driver.", "label": "benign"}
+{"id": 94, "text": "Your voter registration is confirmed for County XYZ.", "label": "benign"}
+{"id": 95, "text": "Jury duty: Report to courthouse on January 15 at 8am.", "label": "benign"}
+{"id": 96, "text": "Property tax bill available. Due date: February 1.", "label": "benign"}
+{"id": 97, "text": "Your passport application has been processed.", "label": "benign"}
+{"id": 98, "text": "Census reminder: Please complete your form by March 31.", "label": "benign"}
+{"id": 99, "text": "Your social security statement is now available online.", "label": "benign"}
+

@@ -1,0 +1,10 @@
+{
+  "method": "platt",
+  "platt_a": 6.769049718799298,
+  "platt_b": -2.8151581005923325,
+  "isotonic_x": null,
+  "isotonic_y": null,
+  "n_samples": 70,
+  "ece_before": 0.22921428571428573,
+  "ece_after": 0.22921428571428573
+}

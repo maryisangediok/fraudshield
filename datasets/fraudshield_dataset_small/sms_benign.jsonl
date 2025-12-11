@@ -1,0 +1,11 @@
+{"id": 0, "text": "Hey! Are we still on for dinner tonight at 7?", "label": "benign"}
+{"id": 1, "text": "Running 10 mins late, traffic is crazy. Be there soon!", "label": "benign"}
+{"id": 2, "text": "Happy birthday! Hope you have an amazing day! 🎂", "label": "benign"}
+{"id": 3, "text": "Can you pick up milk on your way home?", "label": "benign"}
+{"id": 4, "text": "Thanks for lunch! Let's do it again soon.", "label": "benign"}
+{"id": 5, "text": "Mom says hi and wants to know if you're coming for Thanksgiving.", "label": "benign"}
+{"id": 6, "text": "Just landed! Will text you when I get to the hotel.", "label": "benign"}
+{"id": 7, "text": "Did you see the game last night? Incredible finish!", "label": "benign"}
+{"id": 8, "text": "Meeting moved to 3pm. Conference room B.", "label": "benign"}
+{"id": 9, "text": "Your prescription is ready for pickup at Walgreens.", "label": "benign"}
+

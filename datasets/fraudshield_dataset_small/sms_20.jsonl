@@ -1,0 +1,11 @@
+{"id": 0, "text": "URGENT: Your Chase account is locked. Verify now: https://secure-update.net/confirm?session=40666", "label": "phishing"}
+{"id": 1, "text": "Bank alert: Suspicious debit of $234. Cancel now: https://apple-id-verify.io/login?session=42566", "label": "phishing"}
+{"id": 2, "text": "URGENT: Your Amazon account is locked. Verify now: https://secure-update.io/auth?session=96883", "label": "phishing"}
+{"id": 3, "text": "Package pending. Pay customs fee to release: https://secure-update.com/auth?session=38873", "label": "phishing"}
+{"id": 4, "text": "Your Netflix payment failed. Update now: https://netflix-billing.net/update?id=12345", "label": "phishing"}
+{"id": 5, "text": "IRS: You are owed a refund of $1,432. Claim here: https://irs-refund.co/claim", "label": "phishing"}
+{"id": 6, "text": "Congratulations! You won a $500 Walmart gift card. Claim: https://prize-winner.net/claim", "label": "phishing"}
+{"id": 7, "text": "Your Apple ID was used to sign in. If not you: https://apple-verify.co/secure", "label": "phishing"}
+{"id": 8, "text": "USPS: Delivery failed. Reschedule: https://usps-redelivery.net/schedule?pkg=789", "label": "phishing"}
+{"id": 9, "text": "Wells Fargo Alert: Your card ending 4521 is frozen. Verify: https://wf-alert.com/verify", "label": "phishing"}
+

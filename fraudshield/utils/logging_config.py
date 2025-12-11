@@ -154,6 +154,10 @@ def setup_logging(
     logging.getLogger("httpx").setLevel(logging.WARNING)
     logging.getLogger("httpcore").setLevel(logging.WARNING)
     logging.getLogger("openai").setLevel(logging.WARNING)
+    logging.getLogger("python_multipart").setLevel(logging.WARNING)
+    logging.getLogger("python_multipart.multipart").setLevel(logging.WARNING)
+    logging.getLogger("multipart").setLevel(logging.WARNING)
+    logging.getLogger("uvicorn.access").setLevel(logging.INFO)
 
 
 # ============== METRICS ==============

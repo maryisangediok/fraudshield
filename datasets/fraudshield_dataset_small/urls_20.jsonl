@@ -1,0 +1,15 @@
+{"id": 0, "url": "https://apple-id-verify.io/auth?session=17426", "label": "phishing", "category": "brand_impersonation"}
+{"id": 1, "url": "https://microsoft-auth.com/reset?session=21915", "label": "phishing", "category": "brand_impersonation"}
+{"id": 2, "url": "https://amazon-check.com/verify?session=16847", "label": "phishing", "category": "brand_impersonation"}
+{"id": 3, "url": "https://paypal-login.com/confirm?session=98191", "label": "phishing", "category": "credential_theft"}
+{"id": 4, "url": "https://secure-update.io/login?session=14979", "label": "phishing", "category": "generic_phishing"}
+{"id": 5, "url": "https://netflix-billing.net/update?session=23456", "label": "phishing", "category": "payment_scam"}
+{"id": 6, "url": "https://chase-secure.com/verify?session=78901", "label": "phishing", "category": "banking"}
+{"id": 7, "url": "https://wells-fargo-alert.net/login?session=34567", "label": "phishing", "category": "banking"}
+{"id": 8, "url": "https://usps-delivery.io/track?id=89012", "label": "phishing", "category": "shipping_scam"}
+{"id": 9, "url": "https://irs-refund.co/claim?ref=45678", "label": "phishing", "category": "government_impersonation"}
+{"id": 10, "url": "https://coinbase-wallet.net/verify?uid=abc123", "label": "phishing", "category": "crypto_scam"}
+{"id": 11, "url": "https://metamask-secure.io/restore?seed=true", "label": "phishing", "category": "crypto_scam"}
+{"id": 12, "url": "http://bit.ly/3xY7abc", "label": "phishing", "category": "url_shortener"}
+{"id": 13, "url": "https://drive.google.com.fileview.malicious.site/doc?id=123", "label": "phishing", "category": "subdomain_spoofing"}
+{"id": 14, "url": "https://login.microsoftonline.com-auth.net/oauth", "label": "phishing", "category": "subdomain_spoofing"}

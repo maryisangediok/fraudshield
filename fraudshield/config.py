@@ -45,6 +45,26 @@ class Settings(BaseSettings):
     # ==========================================================================
     high_risk_threshold: float = 7.0  # Score >= this = HIGH
     medium_risk_threshold: float = 4.0  # Score >= this = MEDIUM (below = LOW)
+    
+    # Detection threshold for binary classification (0-1 scale, calibrated)
+    # Optimal value determined by eval: 0.51
+    detection_threshold: float = 0.51
+    
+    # ==========================================================================
+    # CALIBRATION
+    # ==========================================================================
+    calibration_enabled: bool = True
+    calibration_file: str = "data/calibrator.json"
+    
+    # ==========================================================================
+    # EVALUATION
+    # ==========================================================================
+    eval_dataset_dir: str = "datasets/fraudshield_dataset_small"  # Default to small for testing
+    eval_output_dir: str = "eval_results"
+    eval_include_benign: bool = True
+    eval_max_samples: int = 0  # 0 = no limit
+    eval_run_judge: bool = True
+    eval_run_adversarial: bool = True
 
     # ==========================================================================
     # CRITICAL INDICATORS (force HIGH risk)
