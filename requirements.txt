@@ -3,3 +3,14 @@ uvicorn
 pydantic
 sqlalchemy
 python-multipart
+pydantic-settings
+openai>=1.14.0
+# Email parsing (stdlib - no extra install needed)
+# PDF parsing
+pypdf>=3.0.0
+# Video processing
+moviepy>=1.0.3
+Pillow>=9.0.0
+# Streamlit UI
+streamlit>=1.37.0
+requests>=2.31.0

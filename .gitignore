@@ -1,7 +1,37 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Environment files (never commit secrets!)
 .env
+.env.local
+.env.production
+.env.*.local
+
+# Virtual environments
 venv/
 .venv/
+env/
+
+# Database
 fraudshield.db
+*.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Test artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Temp files
+*.tmp
+temp/
